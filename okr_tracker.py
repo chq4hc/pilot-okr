@@ -15,6 +15,7 @@ Tracking Logic:
     Status is determined by comparing actual vs expected progress:
     - On Track: Actual >= Expected
     - Behind: 0% < (Expected - Actual) <= 25%
+    - At risk: (Expected - Actual) > 25%
     Expected progress is calculated linearly based on time elapsed between start and end dates.
     OKR progress is automatically calculated as the average of all Key Result progress percentages.
     When a Key Result is updated, the parent OKR is automatically recalculated.
@@ -456,6 +457,25 @@ class OKRTracker:
             return OKRStatus.ON_TRACK
     
     def get_health_alerts(
+        Implements Viva Goals 'Needs Attention' and 'At Risk' alerts by evaluating
+        the objective's progress against expected milestones and checking for various
+        risk conditions.
+        The method generates alerts for the following conditions:
+        1. Objective is past due date and not completed (CRITICAL)
+        2. Progress has significant gap from expected progress (AT_RISK/NEEDS_ATTENTION)
+        3. Progress is unusually high, suggesting unambitious goals (NEEDS_ATTENTION)
+        4. No key results defined for the objective (NEEDS_ATTENTION)
+        5. One or more key results are at risk (AT_RISK)
+            current_date (Optional[datetime.date]): The date to evaluate alerts against.
+                Defaults to today's date if not provided.
+            List[HealthAlert]: A list of HealthAlert objects sorted by severity score
+                in descending order (most severe first). Returns an empty list if no
+                alerts are triggered.
+        Note:
+            - Uses RISK_THRESHOLD and HIGH_SCORE_THRESHOLD class constants for thresholds
+            - Alert severity scores range from 3 (lowest) to 10 (highest)
+            - Progress gaps are compared against expected progress calculated from the
+              objective's timeline
         self,
         current_date: Optional[datetime.date] = None
     ) -> List[HealthAlert]:
@@ -470,6 +490,7 @@ class OKRTracker:
         Returns:
             List of HealthAlert objects
         """
+
         alerts = []
         actual = self.get_actual_progress_percent()
         expected = self.calculate_expected_progress(current_date)

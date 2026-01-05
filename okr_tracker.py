@@ -1,5 +1,31 @@
 """
-OKR Tracker Module
+This module provides progress tracking and health monitoring capabilities for OKRs (Objectives and Key Results).
+Implements tracking logic similar to Microsoft Viva Goals, enabling automated progress calculation,
+status determination, and health alerts.
+Key Features:
+    - Automatic progress calculation from Key Results
+    - Time-based expected progress tracking
+    - Health alerts and risk detection
+    - Status derivation (On Track, Behind, At Risk)
+    - Historical progress snapshots
+    - JSON-based OKR loading
+    - Comprehensive reporting and summaries
+
+Tracking Logic:
+    Status is determined by comparing actual vs expected progress:
+    - On Track: Actual >= Expected
+    - Behind: 0% < (Expected - Actual) <= 25%
+    Expected progress is calculated linearly based on time elapsed between start and end dates.
+    OKR progress is automatically calculated as the average of all Key Result progress percentages.
+    When a Key Result is updated, the parent OKR is automatically recalculated.
+Health Alerts:
+    - Past due date (Critical)
+    - Significant progress gap (At Risk)
+    - Minor progress gap (Needs Attention)
+    - Score too high/goals not ambitious (Needs Attention)
+    - No Key Results defined (Needs Attention)
+    - Key Results at risk (At Risk)
+
 
 This module provides progress tracking and health monitoring capabilities for OKRs.
 Implements tracking logic similar to Microsoft Viva Goals.

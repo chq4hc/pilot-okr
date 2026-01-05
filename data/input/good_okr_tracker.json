@@ -1,0 +1,35 @@
+{
+    "objective": "Win the Indy 500.",
+    "key_results": [
+        {
+            "text": "Increase average lap speed", 
+            "baseline": "0", 
+            "target": "60", 
+            "deadline": "Race Day"
+        },
+        {
+            "text": "Test at wind tunnel", 
+            "baseline": "0", 
+            "target": "100", 
+            "deadline": "Pre-race season"
+        },
+        {
+            "text": "Reduce average pit stop time", 
+            "baseline": "0", 
+            "target": "9", 
+            "deadline": "Race Day"
+        },
+        {
+            "text": "Reduce pit stop errors", 
+            "baseline": "0", 
+            "target": "10", 
+            "deadline": "Race Day"
+        },
+        {
+            "text": "Practice pit stops", 
+            "baseline": "0", 
+            "target": "1", 
+            "deadline": "Daily until Race Day"
+        }
+    ]
+}

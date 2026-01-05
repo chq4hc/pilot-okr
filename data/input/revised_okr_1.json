@@ -1,0 +1,40 @@
+{
+    "objective": "Win the Indianapolis 500 through class-leading pace, pit execution, race strategy, and reliability.",
+    "key_results": [
+        {
+            "text": "Reduce drag area (CdA) by 3% and increase T1/T3 corner-exit speed by +3 mph to achieve ≥ 0.20 sec/lap faster average green-flag pace vs field median.",
+            "baseline": "CdA: 1.00 m^2 (Wind tunnel, A2 facility, 2025-03-05); T1/T3 exit speed: 216 mph (IMS test telemetry, 2025-04-15); green-flag pace: +0.12 sec/lap slower than field median (IndyCar timing, 2024).",
+            "target": "CdA ≤ 0.97 m^2; T1/T3 exit speed ≥ 219 mph; average green-flag pace ≥ 0.20 sec/lap faster than field median (top-quartile).",
+            "deadline": "By Carb Day",
+            "owner": "Chief Aerodynamicist"
+        },
+        {
+            "text": "Achieve pit-stop performance: median ≤ 6.8s, 90th percentile ≤ 7.2s; pit-stop error rate ≤ 2%.",
+            "baseline": "Median: 7.8s; 90th percentile: 8.4s; error rate: 6% (PitOps v3.2 logs, 2024 season; errors include wheel-nut, fuel, jack, unsafe releases).",
+            "target": "Median ≤ 6.8s; 90th percentile ≤ 7.2s; errors ≤ 2%.",
+            "deadline": "Race Day",
+            "owner": "Crew Chief"
+        },
+        {
+            "text": "Improve reliability: mean laps between critical mechanical failures (engine, gearbox, fuel, suspension) ≥ 800; zero mechanical DNF.",
+            "baseline": "MTBF: 520 laps; mechanical DNFs: 1 (Telemetry + maintenance logs, 2024 season).",
+            "target": "MTBF ≥ 800 laps; 0 mechanical DNFs.",
+            "deadline": "Race Day",
+            "owner": "Reliability Lead"
+        },
+        {
+            "text": "Race strategy outcomes: qualify ≤ P4; average green-flag stint pace ≤ +0.10 sec/lap vs top-3 median; tire degradation ≤ 0.05 sec/lap over 20-lap stints.",
+            "baseline": "Qualifying: P12; stint pace: +0.35 sec/lap vs top-3 median; degradation: 0.12 sec/lap over 20 laps (IMS 2024 data, IndyCar timing + telemetry).",
+            "target": "Qualifying position ≤ P4; stint pace ≤ +0.10 sec/lap vs top-3 median; degradation ≤ 0.05 sec/lap over 20 laps.",
+            "deadline": "Qualifying Weekend and Race Day",
+            "owner": "Race Strategist"
+        },
+        {
+            "text": "Governance, dependencies, and monitoring: publish weekly performance dashboards and complete biweekly review gates; secure 12 wind-tunnel sessions; finalize RACI and escalation path; lock supplier lead times ≤ 10 days with contingency stock for top-5 failure modes; budget/staffing 100% approved; risk register and contingency plan approved.",
+            "baseline": "Dashboards: none; reviews: ad hoc; wind-tunnel sessions booked: 8; RACI: 60% draft; escalation path: undefined; supplier lead times: 14–21 days; contingency stock: 2 of top-5 parts; budget/staffing: 80% approved (Ops reports, 2024).",
+            "target": "Weekly dashboards published; 100% of biweekly review gates executed; 12 wind-tunnel sessions booked; RACI finalized; escalation path documented; supplier lead times ≤ 10 days; contingency stock in place for top-5 parts; budget/staffing 100% approved; risk register and contingency plan approved.",
+            "deadline": "By Pre-Season Start and maintained through Race Day",
+            "owner": "Team Principal"
+        }
+    ]
+}

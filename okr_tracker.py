@@ -457,9 +457,16 @@ class OKRTracker:
             return OKRStatus.ON_TRACK
     
     def get_health_alerts(
+        self,
+        current_date: Optional[datetime.date] = None
+    ) -> List[HealthAlert]:
+        """
+        Get health alerts based on tracking data.
+
         Implements Viva Goals 'Needs Attention' and 'At Risk' alerts by evaluating
         the objective's progress against expected milestones and checking for various
         risk conditions.
+        
         The method generates alerts for the following conditions:
         1. Objective is past due date and not completed (CRITICAL)
         2. Progress has significant gap from expected progress (AT_RISK/NEEDS_ATTENTION)
@@ -476,13 +483,7 @@ class OKRTracker:
             - Alert severity scores range from 3 (lowest) to 10 (highest)
             - Progress gaps are compared against expected progress calculated from the
               objective's timeline
-        self,
-        current_date: Optional[datetime.date] = None
-    ) -> List[HealthAlert]:
-        """
-        Get health alerts based on tracking data.
-        
-        Implements Viva Goals 'Needs Attention' and 'At Risk' alerts.
+
         
         Args:
             current_date: Date to evaluate (defaults to today)
@@ -490,7 +491,7 @@ class OKRTracker:
         Returns:
             List of HealthAlert objects
         """
-
+        
         alerts = []
         actual = self.get_actual_progress_percent()
         expected = self.calculate_expected_progress(current_date)

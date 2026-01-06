@@ -1,0 +1,653 @@
+{
+  "epics": [
+    {
+      "id": "epic-001",
+      "title": "Q2 Scale Platform to 1M Concurrent Users with Low Latency",
+      "description": "Plan and execute targeted scalability enhancements to reliably support 1,000,000 concurrent users while maintaining backwards compatibility and zero-downtime releases. Scope includes capacity assessment, horizontal scaling, traffic routing across 3 regions, caching/CDN tuning, and end-to-end performance testing. Measurable outcomes by end of Q2: (1) Demonstrate capacity for 1,000,000 concurrent users in pre-production with P95 response time ≤ 300ms and error rate ≤ 0.1%; (2) Activate autoscaling and global traffic routing across 3 regions to enable market expansion; (3) Complete rollout with zero customer-visible downtime and full backwards compatibility verified via regression testing; (4) Stay within allocated Q2 scaling budget envelope without exceeding departmental budget. Work will be performed by the existing team (no net new hires).",
+      "business_value": "Unlocks revenue growth and entry into new markets by handling significantly higher demand with strong user experience, directly supporting $10M ARR, market expansion, and higher customer satisfaction through faster, more reliable performance.",
+      "objectives": [
+        {
+          "id": "obj-001",
+          "title": "Prove lightning-fast, error-free performance at 1M concurrent in pre-production",
+          "description": "Demonstrate the platform can reliably sustain 1,000,000 concurrent users with low latency and minimal errors through targeted performance tuning, caching/CDN optimization, and end-to-end load testing.",
+          "key_results": [
+            {
+              "id": "kr-001",
+              "description": "Sustain 1,000,000 concurrent users for ≥15 minutes in pre-production",
+              "metric": "Max concurrent users sustained (15-min, pre-prod)",
+              "baseline": 300000.0,
+              "target": 1000000.0,
+              "current": 300000.0,
+              "unit": "users",
+              "owner": "Performance Engineering Lead",
+              "due_date": "2026-06-15"
+            },
+            {
+              "id": "kr-002",
+              "description": "Reduce P95 response time under 1M concurrent to ≤300ms in pre-production",
+              "metric": "P95 response time at 1M concurrent (pre-prod)",
+              "baseline": 450.0,
+              "target": 300.0,
+              "current": 450.0,
+              "unit": "ms",
+              "owner": "Backend Engineering Lead",
+              "due_date": "2026-06-15"
+            },
+            {
+              "id": "kr-003",
+              "description": "Lower error rate under 1M concurrent to ≤0.1% in pre-production",
+              "metric": "Error rate at 1M concurrent (pre-prod)",
+              "baseline": 0.8,
+              "target": 0.1,
+              "current": 0.8,
+              "unit": "percent",
+              "owner": "SRE Lead",
+              "due_date": "2026-06-15"
+            },
+            {
+              "id": "kr-004",
+              "description": "Increase global CDN/cache effectiveness to reduce origin load and latency",
+              "metric": "CDN/cache hit ratio (global)",
+              "baseline": 65.0,
+              "target": 90.0,
+              "current": 65.0,
+              "unit": "percent",
+              "owner": "Edge Platform Lead",
+              "due_date": "2026-06-01"
+            }
+          ],
+          "priority": "critical",
+          "owner": "Performance Engineering & SRE",
+          "timeframe": "Q2",
+          "epic_id": "epic-001"
+        },
+        {
+          "id": "obj-002",
+          "title": "Deliver resilient, globally distributed traffic and zero-downtime releases",
+          "description": "Activate autoscaling and global traffic routing across 3 regions, ensure rapid failover and zero customer-visible downtime, and verify full backwards compatibility via robust regression testing.",
+          "key_results": [
+            {
+              "id": "kr-005",
+              "description": "Enable autoscaling on all stateless services",
+              "metric": "Stateless services with autoscaling enabled",
+              "baseline": 60.0,
+              "target": 100.0,
+              "current": 60.0,
+              "unit": "percent",
+              "owner": "Platform Engineering Lead",
+              "due_date": "2026-05-31"
+            },
+            {
+              "id": "kr-006",
+              "description": "Route production traffic across 3 regions with health-based balancing",
+              "metric": "Production traffic served via multi-region routing",
+              "baseline": 0.0,
+              "target": 95.0,
+              "current": 0.0,
+              "unit": "percent",
+              "owner": "SRE Lead",
+              "due_date": "2026-06-10"
+            },
+            {
+              "id": "kr-007",
+              "description": "Achieve zero customer-visible downtime for all Q2 releases",
+              "metric": "Zero-downtime release success rate",
+              "baseline": 97.0,
+              "target": 100.0,
+              "current": 97.0,
+              "unit": "percent",
+              "owner": "Release Manager",
+              "due_date": "2026-06-30"
+            },
+            {
+              "id": "kr-008",
+              "description": "Verify full backwards compatibility via automated regression",
+              "metric": "Critical API regression test pass rate",
+              "baseline": 96.0,
+              "target": 99.5,
+              "current": 96.0,
+              "unit": "percent",
+              "owner": "QA Lead",
+              "due_date": "2026-06-20"
+            },
+            {
+              "id": "kr-009",
+              "description": "Improve regional failover recovery time during drills",
+              "metric": "Regional failover recovery time",
+              "baseline": 10.0,
+              "target": 2.0,
+              "current": 10.0,
+              "unit": "minutes",
+              "owner": "SRE Lead",
+              "due_date": "2026-06-05"
+            }
+          ],
+          "priority": "critical",
+          "owner": "Platform Engineering & SRE",
+          "timeframe": "Q2",
+          "epic_id": "epic-001"
+        },
+        {
+          "id": "obj-003",
+          "title": "Scale efficiently within budget while accelerating developer delivery",
+          "description": "Optimize cost-to-serve at scale, meet 99.99% reliability targets, and enhance CI/CD and developer productivity while reducing high-priority technical debt.",
+          "key_results": [
+            {
+              "id": "kr-010",
+              "description": "Lower cost-to-serve at scale",
+              "metric": "Cloud cost per 1k requests at 1M concurrent",
+              "baseline": 0.85,
+              "target": 0.6,
+              "current": 0.85,
+              "unit": "USD per 1k requests",
+              "owner": "Finance Partner & Engineering Manager",
+              "due_date": "2026-06-30"
+            },
+            {
+              "id": "kr-011",
+              "description": "Keep total Q2 scaling spend within budget envelope",
+              "metric": "Q2 scaling spend vs budget",
+              "baseline": 105.0,
+              "target": 100.0,
+              "current": 105.0,
+              "unit": "percent",
+              "owner": "Engineering Manager",
+              "due_date": "2026-06-30"
+            },
+            {
+              "id": "kr-012",
+              "description": "Meet 99.99% uptime SLO across core services",
+              "metric": "Service uptime (SLO)",
+              "baseline": 99.95,
+              "target": 99.99,
+              "current": 99.95,
+              "unit": "percent",
+              "owner": "SRE Lead",
+              "due_date": "2026-06-30"
+            },
+            {
+              "id": "kr-013",
+              "description": "Speed up delivery by reducing median lead time for changes",
+              "metric": "Median lead time for changes (commit to prod)",
+              "baseline": 18.0,
+              "target": 8.0,
+              "current": 18.0,
+              "unit": "hours",
+              "owner": "DevOps Lead",
+              "due_date": "2026-06-15"
+            },
+            {
+              "id": "kr-014",
+              "description": "Reduce high-priority tech debt by 30%",
+              "metric": "High-priority tech debt items remaining",
+              "baseline": 120.0,
+              "target": 84.0,
+              "current": 120.0,
+              "unit": "items",
+              "owner": "Engineering Managers",
+              "due_date": "2026-06-30"
+            }
+          ],
+          "priority": "critical",
+          "owner": "Engineering Leadership",
+          "timeframe": "Q2",
+          "epic_id": "epic-001"
+        }
+      ],
+      "priority": "critical",
+      "estimated_effort": "30 person-months",
+      "dependencies": [
+        "Cloud provider quota and budget approvals for multi-region capacity",
+        "CDN/global traffic routing contract and configuration",
+        "Data access optimization plan approved (backwards compatible)",
+        "Security and compliance review for multi-region traffic",
+        "Monitoring and performance test environment readiness"
+      ],
+      "stakeholders": [
+        "CTO",
+        "VP Engineering",
+        "Platform Engineering Manager",
+        "SRE Lead",
+        "Product Management",
+        "Finance Lead"
+      ],
+      "department": "Engineering",
+      "timeframe": "Q2"
+    },
+    {
+      "id": "epic-002",
+      "title": "Q2 Reliability & Zero-Downtime Program to Achieve 99.99% Uptime",
+      "description": "Implement resilience upgrades and release safeguards to achieve 99.99% monthly uptime with zero-downtime deployments. Scope includes multi-region failover readiness, health checks, automated rollback with progressive rollouts, incident runbooks, on-call improvements, and observability enhancements. Measurable outcomes by end of Q2: (1) 99.99% monthly uptime on customer-facing endpoints measured by external monitoring; (2) Mean Time to Recovery ≤ 30 minutes on critical incidents; (3) 100% of releases use progressive rollout and automated rollback; (4) Reduce P1 incidents by 50% vs Q1 baseline; (5) Zero customer-visible downtime during all Q2 deployments. Work aligns with backwards compatibility requirements and uses existing team capacity.",
+      "business_value": "Improves customer trust and reduces churn by minimizing outages, directly supporting 95% customer satisfaction and enabling reliable expansion to new markets, which contributes to ARR growth.",
+      "objectives": [
+        {
+          "id": "obj-001",
+          "title": "Make every release safe and seamless with zero customer-visible downtime",
+          "description": "Deliver zero-downtime deployments through progressive rollouts, automated rollback, and strong release guardrails to ensure reliable, backward-compatible releases across all services.",
+          "key_results": [
+            {
+              "id": "kr-001",
+              "description": "Increase production releases using progressive rollout with automated rollback enabled",
+              "metric": "Progressive rollout adoption rate",
+              "baseline": 45.0,
+              "target": 100.0,
+              "current": 45.0,
+              "unit": "%",
+              "owner": "Release Engineering Lead",
+              "due_date": "2026-06-30"
+            },
+            {
+              "id": "kr-002",
+              "description": "Expand automated rollback coverage across tier-1 services",
+              "metric": "Automated rollback coverage (tier-1 services)",
+              "baseline": 25.0,
+              "target": 100.0,
+              "current": 25.0,
+              "unit": "%",
+              "owner": "SRE Lead",
+              "due_date": "2026-06-30"
+            },
+            {
+              "id": "kr-003",
+              "description": "Reduce the change failure rate for production releases",
+              "metric": "Change failure rate (incidents caused by releases / total releases)",
+              "baseline": 8.0,
+              "target": 2.0,
+              "current": 8.0,
+              "unit": "%",
+              "owner": "Release Engineering Lead",
+              "due_date": "2026-06-30"
+            },
+            {
+              "id": "kr-004",
+              "description": "Eliminate customer-visible downtime during deployments",
+              "metric": "Deployment downtime (customer-visible) in Q2",
+              "baseline": 25.0,
+              "target": 0.0,
+              "current": 25.0,
+              "unit": "minutes",
+              "owner": "SRE Team",
+              "due_date": "2026-06-30"
+            }
+          ],
+          "priority": "critical",
+          "owner": "Release Engineering & SRE",
+          "timeframe": "Q2",
+          "epic_id": "epic-002"
+        },
+        {
+          "id": "obj-002",
+          "title": "Harden platform resilience to reliably deliver 99.99% uptime",
+          "description": "Achieve multi-region failover readiness, comprehensive health checks, and complete external monitoring to keep customer-facing endpoints available at four nines.",
+          "key_results": [
+            {
+              "id": "kr-005",
+              "description": "Increase monthly uptime on customer-facing endpoints measured by external monitoring",
+              "metric": "External monthly uptime (customer endpoints)",
+              "baseline": 99.95,
+              "target": 99.99,
+              "current": 99.95,
+              "unit": "%",
+              "owner": "Observability Lead",
+              "due_date": "2026-06-30"
+            },
+            {
+              "id": "kr-006",
+              "description": "Reduce time to failover to secondary region during game-day simulations",
+              "metric": "Failover time to secondary region (tier-1 services)",
+              "baseline": 45.0,
+              "target": 5.0,
+              "current": 45.0,
+              "unit": "minutes",
+              "owner": "Platform Engineering Lead",
+              "due_date": "2026-06-30"
+            },
+            {
+              "id": "kr-007",
+              "description": "Enable active-active multi-region with automated health checks for tier-1 services",
+              "metric": "Multi-region readiness coverage (tier-1 services)",
+              "baseline": 30.0,
+              "target": 100.0,
+              "current": 30.0,
+              "unit": "%",
+              "owner": "Platform Engineering Manager",
+              "due_date": "2026-06-30"
+            },
+            {
+              "id": "kr-008",
+              "description": "Achieve full external monitoring coverage for customer-facing endpoints",
+              "metric": "External monitoring coverage (customer endpoints)",
+              "baseline": 90.0,
+              "target": 100.0,
+              "current": 90.0,
+              "unit": "%",
+              "owner": "Observability Team",
+              "due_date": "2026-06-30"
+            }
+          ],
+          "priority": "critical",
+          "owner": "Platform Engineering & Observability",
+          "timeframe": "Q2",
+          "epic_id": "epic-002"
+        },
+        {
+          "id": "obj-003",
+          "title": "Respond and recover fast: halve P1 incidents and drive MTTR to 30 minutes or less",
+          "description": "Elevate incident readiness with tested runbooks, improved on-call, and actionable observability to minimize impact and restore service rapidly.",
+          "key_results": [
+            {
+              "id": "kr-009",
+              "description": "Reduce Mean Time to Recovery for critical incidents",
+              "metric": "MTTR (critical incidents)",
+              "baseline": 70.0,
+              "target": 30.0,
+              "current": 70.0,
+              "unit": "minutes",
+              "owner": "Incident Response Lead",
+              "due_date": "2026-06-30"
+            },
+            {
+              "id": "kr-010",
+              "description": "Cut P1 incident volume by half compared to Q1 baseline",
+              "metric": "P1 incidents (Q2 total)",
+              "baseline": 12.0,
+              "target": 6.0,
+              "current": 12.0,
+              "unit": "incidents",
+              "owner": "SRE Manager",
+              "due_date": "2026-06-30"
+            },
+            {
+              "id": "kr-011",
+              "description": "Ensure runbooks are complete, up-to-date, and tested for all tier-1 services",
+              "metric": "Runbook completeness & test coverage (tier-1 services)",
+              "baseline": 35.0,
+              "target": 100.0,
+              "current": 35.0,
+              "unit": "%",
+              "owner": "Incident Response Lead",
+              "due_date": "2026-06-30"
+            },
+            {
+              "id": "kr-012",
+              "description": "Improve median on-call acknowledgment time for P1 pages",
+              "metric": "On-call acknowledgment time (median, P1 pages)",
+              "baseline": 7.0,
+              "target": 3.0,
+              "current": 7.0,
+              "unit": "minutes",
+              "owner": "On-Call Coordinator",
+              "due_date": "2026-06-30"
+            }
+          ],
+          "priority": "critical",
+          "owner": "SRE & Incident Response",
+          "timeframe": "Q2",
+          "epic_id": "epic-002"
+        }
+      ],
+      "priority": "critical",
+      "estimated_effort": "25 person-months",
+      "dependencies": [
+        "Observability tooling upgrades (alerting, dashboards, synthetic checks)",
+        "Updated release management policy for progressive rollout and rollback",
+        "Service ownership and runbooks finalized across teams",
+        "Disaster recovery and failover playbooks approved",
+        "Customer Support alignment on incident communications",
+        "Readiness of multi-region infrastructure from scalability work"
+      ],
+      "stakeholders": [
+        "SRE Lead",
+        "DevOps Lead",
+        "QA Lead",
+        "Customer Support Lead",
+        "VP Engineering",
+        "Security Lead"
+      ],
+      "department": "Engineering",
+      "timeframe": "Q2"
+    },
+    {
+      "id": "epic-003",
+      "title": "Q2 Developer Experience Upgrade & 30% Technical Debt Reduction",
+      "description": "Elevate developer productivity and reduce technical debt to accelerate delivery while maintaining backwards compatibility. Scope includes refactoring the top high-risk code areas, improving automated test coverage on critical paths, optimizing CI/CD to cut build and verification times, and adding quality gates. Measurable outcomes by end of Q2: (1) Reduce technical debt by 30% from Q1 baseline using a standardized internal Tech Debt Index; (2) Cut CI/CD pipeline time by 50% (average build+test ≤ 10 minutes); (3) Increase automated test coverage on critical paths to ≥ 80%; (4) Improve deployment frequency to at least daily with change failure rate < 5% and zero-downtime procedures; (5) Reduce lead time for changes by 40% (DORA metric). All work leverages feature flags and progressive releases to ensure backwards compatibility, and fits within the existing team and budget constraints.",
+      "business_value": "Accelerates time-to-market for revenue-impacting features, lowers maintenance costs, and improves product quality, supporting entry into 3 new markets, $10M ARR, and higher customer satisfaction through fewer defects and faster delivery.",
+      "objectives": [
+        {
+          "id": "obj-001",
+          "title": "Retire high-risk technical debt to unlock developer velocity and quality",
+          "description": "Systematically reduce technical debt in the highest-risk code areas using the standardized Tech Debt Index, improving code health and lowering defect risk to accelerate safe delivery.",
+          "key_results": [
+            {
+              "id": "kr-001",
+              "description": "Reduce aggregate Tech Debt Index (TDI) from Q1 baseline by 30%",
+              "metric": "Tech Debt Index (aggregate, across repos)",
+              "baseline": 100.0,
+              "target": 70.0,
+              "current": 100.0,
+              "unit": "TDI points",
+              "owner": "Head of Engineering Productivity",
+              "due_date": "2026-06-30"
+            },
+            {
+              "id": "kr-002",
+              "description": "Increase proportion of top 10 high-risk components with ≥25% TDI improvement",
+              "metric": "High-risk components improved ≥25% (share)",
+              "baseline": 0.0,
+              "target": 80.0,
+              "current": 0.0,
+              "unit": "%",
+              "owner": "Architecture Lead",
+              "due_date": "2026-06-15"
+            },
+            {
+              "id": "kr-003",
+              "description": "Reduce static analysis code smells in prioritized modules",
+              "metric": "Static analysis code smells (SonarQube findings)",
+              "baseline": 1200.0,
+              "target": 720.0,
+              "current": 1200.0,
+              "unit": "findings",
+              "owner": "Quality Engineering Lead",
+              "due_date": "2026-06-30"
+            },
+            {
+              "id": "kr-004",
+              "description": "Lower defect density in refactored high-risk modules",
+              "metric": "Defect density in refactored modules",
+              "baseline": 0.8,
+              "target": 0.4,
+              "current": 0.8,
+              "unit": "defects/KLOC",
+              "owner": "Engineering Managers",
+              "due_date": "2026-06-30"
+            }
+          ],
+          "priority": "critical",
+          "owner": "Engineering Platform Team",
+          "timeframe": "Q2",
+          "epic_id": "epic-003"
+        },
+        {
+          "id": "obj-002",
+          "title": "Make CI/CD blazing fast and bulletproof for safe, zero‑downtime releases",
+          "description": "Optimize build and verification, enforce quality gates, and adopt progressive, zero-downtime deployment patterns to increase deployment frequency while reducing change failures.",
+          "key_results": [
+            {
+              "id": "kr-005",
+              "description": "Cut average CI pipeline duration (build+test) by 50% to ≤10 minutes",
+              "metric": "Average CI pipeline duration (build+verification)",
+              "baseline": 20.0,
+              "target": 10.0,
+              "current": 20.0,
+              "unit": "minutes",
+              "owner": "DevOps Lead",
+              "due_date": "2026-06-15"
+            },
+            {
+              "id": "kr-006",
+              "description": "Increase deployment frequency to at least daily",
+              "metric": "Deployment frequency (prod deployments per day)",
+              "baseline": 0.4,
+              "target": 1.0,
+              "current": 0.4,
+              "unit": "deployments/day",
+              "owner": "SRE Manager",
+              "due_date": "2026-06-30"
+            },
+            {
+              "id": "kr-007",
+              "description": "Reduce change failure rate to <5%",
+              "metric": "Change failure rate (DORA)",
+              "baseline": 12.0,
+              "target": 5.0,
+              "current": 12.0,
+              "unit": "%",
+              "owner": "SRE Manager",
+              "due_date": "2026-06-30"
+            },
+            {
+              "id": "kr-008",
+              "description": "Enforce mandatory quality gates (lint, tests, coverage ≥80%, SAST) across repos",
+              "metric": "Repos with mandatory CI quality gates enabled",
+              "baseline": 55.0,
+              "target": 100.0,
+              "current": 55.0,
+              "unit": "%",
+              "owner": "DevOps Lead",
+              "due_date": "2026-05-31"
+            },
+            {
+              "id": "kr-009",
+              "description": "Adopt zero-downtime deployment patterns (blue/green or canary with feature flags)",
+              "metric": "Services using zero-downtime deployment procedures",
+              "baseline": 40.0,
+              "target": 90.0,
+              "current": 40.0,
+              "unit": "%",
+              "owner": "SRE Manager",
+              "due_date": "2026-06-30"
+            }
+          ],
+          "priority": "critical",
+          "owner": "DevOps & SRE Team",
+          "timeframe": "Q2",
+          "epic_id": "epic-003"
+        },
+        {
+          "id": "obj-003",
+          "title": "Raise test rigor on critical paths to enable faster, safer releases",
+          "description": "Strengthen automated testing on critical user and system flows to increase coverage, reduce flakiness, and shorten lead time for changes without sacrificing reliability.",
+          "key_results": [
+            {
+              "id": "kr-010",
+              "description": "Increase automated test coverage on critical paths",
+              "metric": "Automated coverage on critical paths",
+              "baseline": 52.0,
+              "target": 80.0,
+              "current": 52.0,
+              "unit": "%",
+              "owner": "QA Lead",
+              "due_date": "2026-06-15"
+            },
+            {
+              "id": "kr-011",
+              "description": "Reduce lead time for changes (DORA) by 40%",
+              "metric": "Lead time for changes (median)",
+              "baseline": 72.0,
+              "target": 43.0,
+              "current": 72.0,
+              "unit": "hours",
+              "owner": "Head of Engineering Productivity",
+              "due_date": "2026-06-30"
+            },
+            {
+              "id": "kr-012",
+              "description": "Lower flaky test rate to ≤2% to stabilize build verification",
+              "metric": "Flaky test rate (failed-then-pass within 24h)",
+              "baseline": 8.0,
+              "target": 2.0,
+              "current": 8.0,
+              "unit": "%",
+              "owner": "QA Lead",
+              "due_date": "2026-06-15"
+            },
+            {
+              "id": "kr-013",
+              "description": "Reduce critical path defect escape rate to production",
+              "metric": "Critical path production defects",
+              "baseline": 4.0,
+              "target": 2.0,
+              "current": 4.0,
+              "unit": "incidents/month",
+              "owner": "Quality Engineering Lead",
+              "due_date": "2026-06-30"
+            }
+          ],
+          "priority": "high",
+          "owner": "QA & Feature Teams",
+          "timeframe": "Q2",
+          "epic_id": "epic-003"
+        }
+      ],
+      "priority": "high",
+      "estimated_effort": "20 person-months",
+      "dependencies": [
+        "Quality tooling configured (static analysis, coverage reporting, quality gates)",
+        "Feature flag service and guidelines for safe rollouts",
+        "Architecture review and approval of refactoring scope",
+        "Developer training and documentation updates",
+        "Alignment with release and observability practices from reliability program"
+      ],
+      "stakeholders": [
+        "VP Engineering",
+        "Engineering Managers",
+        "QA Lead",
+        "DevOps Lead",
+        "Product Management"
+      ],
+      "department": "Engineering",
+      "timeframe": "Q2"
+    }
+  ],
+  "context": {
+    "department": {
+      "name": "Engineering",
+      "strategic_goals": [
+        "Scale platform to support 1 million concurrent users",
+        "Improve system reliability and uptime to 99.99%",
+        "Reduce technical debt by 30%",
+        "Enhance developer productivity and CI/CD pipeline"
+      ],
+      "team_size": 25,
+      "budget": 500000.0,
+      "current_initiatives": []
+    },
+    "timeframe": "Q2",
+    "focus_areas": [
+      "Infrastructure scalability",
+      "Performance optimization",
+      "Code quality",
+      "Developer experience"
+    ],
+    "constraints": [
+      "Limited hiring budget",
+      "Must maintain backwards compatibility",
+      "Zero downtime deployments required"
+    ],
+    "company_okrs": [
+      "Achieve $10M ARR",
+      "Expand to 3 new markets",
+      "Reach 95% customer satisfaction"
+    ],
+    "additional_context": {}
+  },
+  "created_at": "2026-01-06T13:39:58.691209",
+  "agent_metadata": {
+    "epic_agent": "Epic Planning Agent",
+    "okr_agent": "OKR Planning Agent",
+    "num_epics": 3,
+    "total_objectives": 9,
+    "total_key_results": 39
+  }
+}
